@@ -20,7 +20,18 @@ spring:
   profiles: dev #开发环境
   application:
     name: spring-cloud-eureka
-
+#rabbitmq配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+#暴露触发消息总线的地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
 ---
 eureka:
   client:
@@ -34,3 +45,15 @@ spring:
   profiles: prod #开发环境
   application:
     name: spring-cloud-eureka
+#rabbitmq配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+#暴露触发消息总线的地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
