@@ -13,7 +13,7 @@ eureka:
     register-with-eureka: false #不注册到eureka
     fetch-registry: false #不从eureka发现服务
     service-url:
-      deafultZone: http://eureka6002.com/eureka/
+      deafultZone: http://eureka6002.com:6002/eureka/
   server:
     enable-self-preservation: false
 spring:
@@ -27,7 +27,7 @@ eureka:
     register-with-eureka: false #不注册到eureka
     fetch-registry: false #不从eureka发现服务
     service-url:
-     deafultZone:http://eureka6002.com/eureka/
+     deafultZone:http://eureka6002.com:6002/eureka/
   server:
     enable-self-preservation: true
 spring:
