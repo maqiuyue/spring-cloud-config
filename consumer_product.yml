@@ -1,0 +1,17 @@
+
+
+spring:
+  profiles: dev
+  application:
+    name: spring-cloud-config-product
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+
+#feign自带断路器，需要在此开启
+feign:
+  hystrix:
+    enabled: true
