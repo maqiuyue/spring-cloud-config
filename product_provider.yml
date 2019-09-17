@@ -41,7 +41,7 @@ eureka:
     service-url:
       defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka #服务地址，注册到哪个Eureka服务端  集群版
   instance:
-    instanceId: ${spring.application.name}:${server.port}-hystrix #指定实例名
+    instanceId: ${spring.application.name}:${server.port} #指定实例名
     #microservice-product:8001
     prefer-ip-address: true  #访问路径就会显示成ip地址
 ---
@@ -84,6 +84,6 @@ eureka:
     service-url:
       defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka #服务地址，注册到哪个Eureka服务端  集群版
   instance:
-    instanceId: ${spring.application.name}:${server.port}-hystrix #指定实例名
+    instanceId: ${spring.application.name}:${server.port} #指定实例名
     #microservice-product:8001
     prefer-ip-address: true  #访问路径就会显示成ip地址
