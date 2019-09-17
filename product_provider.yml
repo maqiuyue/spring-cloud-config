@@ -2,8 +2,6 @@ spring:
   profiles:
     active: dev
 ---
-server:
-  port: 8008
 spring:
   profiles: dev
   application:
@@ -26,18 +24,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     username: postgres
     password: root
-#rabbitmq配置
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
-#暴露触发消息总线的地址
-management:
-  endpoints:
-    web:
-      exposure:
-        include: bus-refresh
+
 eureka:
   client:
     register-with-eureka: true  # 将此服务注册到注册中心,服务注册开关
@@ -49,8 +36,7 @@ eureka:
     #microservice-product:8001
     prefer-ip-address: true  #访问路径就会显示成ip地址
 ---
-server:
-  port:9002
+
 spring:
   profiles: prod
   jpa:
