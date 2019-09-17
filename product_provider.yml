@@ -22,7 +22,6 @@ spring:
         enabled: true #配置Repository是否生效，默认为true
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/springcloud_db02
     username: postgres
     password: root
 #rabbitmq配置
