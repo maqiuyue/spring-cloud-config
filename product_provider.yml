@@ -5,7 +5,7 @@ spring:
 spring:
   profiles: dev
   application:
-    name: spring-cloud-product-provider
+    name: spring-cloud-product-provider-bus
   jpa:
     hibernate:
       ddl-auto: update
