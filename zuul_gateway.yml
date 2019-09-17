@@ -1,0 +1,52 @@
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 7001
+spring:
+  profiles: dev
+  application:
+    name: spring-cloud-zuul-gateway
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port} #指定实例Id，就不会显示主机名
+    prefer-ip-address: true #访问路径可以显示ip地
+
+zuul:
+  routes:
+    provider-product: #路由名称,要求唯一
+    path: /product/** #访问路径
+    serviceId:  spring-cloud-product-provider #指定服务ID,自动从Eureka中找到此服务的ip和端口
+    stripPrefix: false #代理转发时不去掉前缀 ,访问/product/get/1 不去掉/product
+    
+---
+server:
+  port: 7002
+spring:
+  profiles: prod
+  application:
+    name: spring-cloud-zuul-gateway
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${server.port} #指定实例Id，就不会显示主机名
+    prefer-ip-address: true #访问路径可以显示ip地
+
+zuul:
+  routes:
+    provider-product: #路由名称,要求唯一
+    path: /product/** #访问路径
+    serviceId:  spring-cloud-product-provider #指定服务ID,自动从Eureka中找到此服务的ip和端口
+    stripPrefix: false #代理转发时不去掉前缀 ,访问/product/get/1 不去掉/product

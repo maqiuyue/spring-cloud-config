@@ -1,7 +1,9 @@
 spring:
   profiles:
-    active: dev
+    active: prod
 ---
+server:
+  port: 8001
 spring:
   profiles: dev
   jpa:
@@ -45,6 +47,8 @@ eureka:
     #microservice-product:8001
     prefer-ip-address: true  #访问路径就会显示成ip地址
 ---
+server:
+  port:9002
 spring:
   profiles: prod
   jpa:
