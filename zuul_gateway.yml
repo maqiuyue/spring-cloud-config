@@ -52,6 +52,6 @@ zuul:
       stripPrefix: false #代理转发时不去掉前缀 ,访问/product/get/1 不去掉/product
       
     consumer-product:
-      path: /consumer/**
+      path: /consumer/product/**
       serviceId: spring-cloud-consumer-product
       stripPrefix: false
