@@ -6,6 +6,8 @@ server:
   port: 8008
 spring:
   profiles: dev
+  application:
+    name: spring-cloud-product-provider
   jpa:
     hibernate:
       ddl-auto: update
