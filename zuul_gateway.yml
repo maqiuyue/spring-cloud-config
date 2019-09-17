@@ -21,10 +21,10 @@ eureka:
 
 zuul:
   routes:
-    provider-product: #路由名称,要求唯一
-      path: /product/** #访问路径
-      serviceId:  spring-cloud-product-provider #指定服务ID,自动从Eureka中找到此服务的ip和端口
-      stripPrefix: false #代理转发时不去掉前缀 ,访问/product/get/1 不去掉/product
+  provider-product: #路由名称,要求唯一
+    path: /product/** #访问路径
+    serviceId:  spring-cloud-product-provider #指定服务ID,自动从Eureka中找到此服务的ip和端口
+    stripPrefix: false #代理转发时不去掉前缀 ,访问/product/get/1 不去掉/product
     
 ---
 server:
