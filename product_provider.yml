@@ -1,4 +1,52 @@
 spring:
+  profiles:
+    active: dev
+---
+spring:
+  profiles: dev
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: postgresql
+  data:
+    jpa:
+      repositories:
+        enabled: true #配置Repository是否生效，默认为true
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: root
+#rabbitmq配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+#暴露触发消息总线的地址
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+eureka:
+  client:
+    register-with-eureka: true  # 将此服务注册到注册中心,服务注册开关
+    fetch-registry: true #服务发现开关，是否从注册中心获取服务
+    service-url:
+      defaultZone: http://eureka6001.com:6001/eureka,http://eureka6002.com:6002/eureka #服务地址，注册到哪个Eureka服务端  集群版
+  instance:
+    instanceId: ${spring.application.name}:${server.port}-hystrix #指定实例名
+    #microservice-product:8001
+    prefer-ip-address: true  #访问路径就会显示成ip地址
+---
+spring:
+  profiles: prod
   jpa:
     hibernate:
       ddl-auto: update
