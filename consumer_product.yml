@@ -3,7 +3,7 @@
 spring:
   profiles: dev
   application:
-    name: spring-cloud-config-product
+    name: spring-cloud-consumer-product
 eureka:
   client:
     register-with-eureka: true
