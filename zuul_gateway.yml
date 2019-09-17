@@ -37,7 +37,10 @@ zuul:
       path: /product/** #访问路径
       serviceId:  spring-cloud-product-provider #指定服务ID,自动从Eureka中找到此服务的ip和端口
       stripPrefix: false #代理转发时不去掉前缀 ,访问/product/get/1 不去掉/product
-    
+    consumer-product:
+      path: /consumer/product/**
+      serviceId: spring-cloud-consumer-product
+      stripPrefix: false   
 ---
 server:
   port: 7002
@@ -74,8 +77,7 @@ zuul:
       path: /product/** #访问路径
       serviceId:  spring-cloud-product-provider #指定服务ID,自动从Eureka中找到此服务的ip和端口
       stripPrefix: false #代理转发时不去掉前缀 ,访问/product/get/1 不去掉/product
-      
-    consumer-product:
+     consumer-product:
       path: /consumer/product/**
       serviceId: spring-cloud-consumer-product
-      stripPrefix: false
+      stripPrefix: false   

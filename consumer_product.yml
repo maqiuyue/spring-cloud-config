@@ -10,7 +10,10 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka6001.com:6001/eureka/,http://eureka6002.com:6002/eureka/
-
+  instance:
+    instanceId: ${spring.application.name}:${server.port} #指定实例名
+    #microservice-product:8001
+    prefer-ip-address: true  #访问路径就会显示成ip地址
 #feign自带断路器，需要在此开启
 feign:
   hystrix:
