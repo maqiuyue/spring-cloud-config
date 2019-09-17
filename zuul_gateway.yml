@@ -2,8 +2,7 @@ spring:
   profiles:
     active: dev
 ---
-server:
-  port: 7001
+
 spring:
   profiles: dev
   application:
@@ -42,8 +41,7 @@ zuul:
       serviceId: spring-cloud-consumer-product
       stripPrefix: false   
 ---
-server:
-  port: 7002
+
 spring:
   profiles: prod
   application:
